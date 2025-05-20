@@ -120,7 +120,7 @@ const allocator = gpa.allocator();
 
 const file = std.io.getStdIn();
 
-const value = try parseFile(file, allocator);
+const value = try json.parseFile(file, allocator);
 errdefer value.deinit(allocator);
 defer value.deinit(allocator);
 
@@ -165,7 +165,7 @@ const allocator = gpa.allocator();
 const file = try std.fs.cwd().openFile("testFiles/some.json", .{});
 defer file.close();
 
-const value = try parseFile(file, allocator);
+const value = try json.parseFile(file, allocator);
 errdefer value.deinit(allocator);
 defer value.deinit(allocator);
 
