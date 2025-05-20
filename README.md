@@ -192,7 +192,7 @@ var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 defer std.debug.assert(!gpa.deinit());
 const allocator = gpa.allocator();
 
-const value = try parseJson5(
+const value = try json.parseJson5(
     \\{
     \\  foo: [
     \\    /* Some
